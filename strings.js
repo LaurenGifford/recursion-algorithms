@@ -68,3 +68,22 @@ function urlify(string) {
     let noSpaces = string.split(" ")
     return noSpaces.join("%20")
 }
+
+function palinPerm(string) {
+    let charCount = {}
+    let oddCount = 0
+
+    for (let i=0; i<string.length; i++){
+        if (charCount[string[i]] >= 1) {
+        charCount[string[i]] = charCount[string[i]] + 1}
+        else {charCount[string[i]] = 1}
+        
+        if (charCount[string[i]] % 2 == 1) {
+            oddCount++
+        }
+        else if (charCount[string[i]] % 2 == 0) {
+         oddCount--
+     }
+    }
+    return oddCount <= 1
+}

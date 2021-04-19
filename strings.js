@@ -77,7 +77,7 @@ function palinPerm(string) {
         if (charCount[string[i]] >= 1) {
         charCount[string[i]] = charCount[string[i]] + 1}
         else {charCount[string[i]] = 1}
-        
+
         if (charCount[string[i]] % 2 == 1) {
             oddCount++
         }
@@ -87,3 +87,54 @@ function palinPerm(string) {
     }
     return oddCount <= 1
 }
+
+function oneAway(s1, s2) {
+    
+    if (s1 === s2) {
+        return true
+    }
+    else if (s1.length + 1 === s2.length) {
+        return oneInsert(s1, s2)
+    }
+    else if (s1.length - 1 === s2.length) {
+        return oneInsert(s2, s1)
+    }
+    else if (s1.length === s2.length) {
+        return oneReplace(s1, s2)
+    }
+    
+    function oneReplace(s1, s2){
+        let diff = false
+        for (let i=0; i< s1.length; i++) {
+            if (s1[i] !== s2[i]) {
+                if (diff){
+                    return false
+                }
+                diff = true
+            }
+        }
+        return diff
+    }
+
+    function oneInsert(s1, s2) {
+        let index1 = 0
+        let index2 = 0
+        while (index1 < s1.length && index2 < s2.length) {
+            if (s1[index1] !== s2[index2]){
+                if (index1 !== index2) {
+                    return false
+                }
+            index2++
+            } else {
+                index1++
+                index2++
+            }
+        }
+        return true
+    }
+    return false
+}
+
+
+
+oneAway('let', 'lets')

@@ -51,7 +51,16 @@ function isUnique(string) {
 }
 
 function checkPermutation(s1, s2) {
+    if (s1.length !== s2.length) {
+        return false
+    }
+    else if (sort(s1) === sort(s2)){
+        return true
+    }
 
+    function sort(string) {
+        return string.split('').sort().join()
+    }
 }
 
 

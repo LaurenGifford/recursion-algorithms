@@ -10,7 +10,6 @@ function printString(string) {
 }
 
 
-
 function reverseString(string) {
     if (string.length > 1) {
         let sub = string.substring(1)
@@ -34,3 +33,19 @@ function isPalindrome(string) {
     }
 }
 
+function isUnique(string) {
+    if (string.length <= 1) {
+        return true
+    }
+    else if (string.length >= 2) {
+        for (let i=0; i < string.length; i++){
+            
+            for (let j=i+1; j < string.length; j++) {
+                if (string[i] === string[j]){
+                    return false
+                }
+            }
+        }
+    }
+    return true
+}

@@ -49,3 +49,13 @@ function isUnique(string) {
     }
     return true
 }
+
+function checkPermutation(s1, s2) {
+
+}
+
+
+function urlify(string) {
+    let noSpaces = string.split(" ")
+    return noSpaces.join("%20")
+}

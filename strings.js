@@ -69,24 +69,28 @@ function urlify(string) {
     return noSpaces.join("%20")
 }
 
+
 function palinPerm(string) {
+    let noSpaces = string.split(' ').join('')
     let charCount = {}
     let oddCount = 0
 
-    for (let i=0; i<string.length; i++){
-        if (charCount[string[i]] >= 1) {
-        charCount[string[i]] = charCount[string[i]] + 1}
-        else {charCount[string[i]] = 1}
+    for (let i=0; i < noSpaces.length; i++){
+        if (charCount[noSpaces[i]] >= 1) {
+        charCount[noSpaces[i]] = charCount[noSpaces[i]] + 1}
+        else {charCount[noSpaces[i]] = 1}
 
-        if (charCount[string[i]] % 2 == 1) {
+        if (charCount[noSpaces[i]] % 2 == 1) {
             oddCount++
         }
-        else if (charCount[string[i]] % 2 == 0) {
+        else if (charCount[noSpaces[i]] % 2 == 0) {
          oddCount--
      }
     }
     return oddCount <= 1
 }
+
+
 
 function oneAway(s1, s2) {
     
@@ -135,6 +139,27 @@ function oneAway(s1, s2) {
     return false
 }
 
+function anagram(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false
+    }
+    let counter1 = {}
+    let counter2 = {}
 
+    for (let val of str1) {
+        counter1[val] = (counter1[val] || 0) + 1
+    }
+    for (let val of str2) {
+        counter2[val] = (counter2[val] || 0) + 1
+    }
 
-oneAway('let', 'lets')
+    for (let key in counter1) {
+        if (!key in counter2) {
+            return false
+        }
+        if (counter1[key] !== counter2[key]) {
+            return false
+        }
+    }
+    return true
+}

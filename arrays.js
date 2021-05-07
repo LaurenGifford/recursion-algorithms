@@ -65,3 +65,18 @@ function sumZero(arr) {
         } else {left++}
     }
 }
+
+
+function countUniqueValues(arr) {
+    if (arr.length > 0){
+        let index = 0
+        for (let j = 1; j < arr.length; j++) {
+           if (arr[index] !== arr[j]) {
+            index++
+            arr[index] = arr[j]
+           }
+        }
+        return index + 1 
+    }
+    return 0
+}

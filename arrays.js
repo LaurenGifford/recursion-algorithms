@@ -95,3 +95,6 @@ function maxSubarraySum(arr, num) {
     return maxSum
 }
 
+function sameFrequency() {
+
+}

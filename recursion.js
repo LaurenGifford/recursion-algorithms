@@ -70,3 +70,36 @@ function fib(n){
     if (n <= 2) return 1
     return fib(n-1) + fib(n-2)
 }
+
+function reverse(str){
+    let newStr = str[0]
+    if (str.length === 1) return str
+
+    newStr = reverse(str.substring(1)) + newStr
+    return newStr
+}
+
+
+function isPalindrome(str) {
+    if (str.length <= 1) return true
+    if (str[0] !== str[str.length -1]) return false
+    return isPalindrome(str.substring(1, str.length -1))
+}
+
+function someRecursive(arr, callback){
+    if (arr.length === 0) return false
+    if (callback(arr[0])) return true
+    return someRecursive(arr.slice(1), callback)
+}
+
+function flatten(arr) {
+    let newArr = []
+
+    for (let i = 0; i< arr.length; i++) {
+        if (Array.isArray(arr[i])) {
+            newArr = newArr.concat(flatten(arr[i]))
+        }
+        else newArr.push(arr[i])
+    }
+    return newArr
+}

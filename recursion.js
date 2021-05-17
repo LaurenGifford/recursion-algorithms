@@ -117,15 +117,15 @@ function capitalizeFirst(arr) {
     return capitalized
 }
 // recursive
-function capitalizeFirst(arr) {
+function capitalizeFirst (array) {
     if (array.length === 1) {
-        return [array[0].toUpperCase()];
-      }
-      let res = capitalizeWords(array.slice(0, -1));
-      res.push(array.slice(array.length-1)[0].toUpperCase());
-      return res;
-     
-}
+      return [array[0][0].toUpperCase() + array[0].substr(1)];
+    }
+    const res = capitalizeFirst(array.slice(0, -1));
+    const string = array.slice(array.length - 1)[0][0].toUpperCase() + array.slice(array.length-1)[0].substr(1);
+    res.push(string);
+    return res;
+  }
 
 function nestedEvenSum(obj) {
     let values = Object.values(obj)
@@ -139,6 +139,32 @@ function nestedEvenSum(obj) {
             sum += val
         }
     })
-
     return sum
 }
+
+function capitalizeWords(arr) {
+    if (arr.length === 1) {
+        return [arr[0].toUpperCase()];
+      }
+      let res = capitalizeWords(arr.slice(0, -1));
+      res.push(arr.slice(arr.length-1)[0].toUpperCase());
+      return res;
+}
+
+function stringifyNumbers(obj) {
+    let newObj = {}
+    let values = Object.values(obj)
+
+    for (let val in obj) {
+        if (typeof obj[val] === 'object' && !Array.isArray(obj[val])) {
+            newObj[val] = stringifyNumbers(obj[val])
+        }
+        else if (typeof obj[val] === 'number') {
+            newObj[val] = obj[val].toString()
+        } else {
+            newObj[val] = obj[val]
+        }
+    }
+    return newObj
+}
+

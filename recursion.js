@@ -103,3 +103,42 @@ function flatten(arr) {
     }
     return newArr
 }
+
+// iterative
+function capitalizeFirst(arr) {
+    let capitalized = [] 
+
+    for (let i = 0; i < arr.length; i++) {
+        let word = arr[i]
+        let first = word[0].toUpperCase()
+        let rest = word.slice(1)
+        capitalized.push(first.concat(rest))
+    }
+    return capitalized
+}
+// recursive
+function capitalizeFirst(arr) {
+    if (array.length === 1) {
+        return [array[0].toUpperCase()];
+      }
+      let res = capitalizeWords(array.slice(0, -1));
+      res.push(array.slice(array.length-1)[0].toUpperCase());
+      return res;
+     
+}
+
+function nestedEvenSum(obj) {
+    let values = Object.values(obj)
+    let sum = 0
+
+    values.forEach(val => {
+        if (typeof val === 'object') {
+            sum += nestedEvenSum(val)
+        }
+        else if ((typeof val === 'number') && (val % 2 === 0)) {
+            sum += val
+        }
+    })
+
+    return sum
+}

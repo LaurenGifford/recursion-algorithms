@@ -153,7 +153,6 @@ function capitalizeWords(arr) {
 
 function stringifyNumbers(obj) {
     let newObj = {}
-    let values = Object.values(obj)
 
     for (let val in obj) {
         if (typeof obj[val] === 'object' && !Array.isArray(obj[val])) {
@@ -168,3 +167,16 @@ function stringifyNumbers(obj) {
     return newObj
 }
 
+function collectStrings(obj) {
+    let strings = []
+
+    for (let key in obj) {
+        if (typeof obj[key] === 'string') {
+            strings.push(obj[key])
+        } 
+        else if (typeof obj[key] === 'object') {
+            strings = strings.concat(collectStrings(obj[key]))
+        }
+    }
+    return strings
+}

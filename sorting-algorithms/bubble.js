@@ -1,3 +1,6 @@
+// Works well with nearly sorted data
+
+
 // Basic example
 // function bubble(arr) {
 //     const swap = (arr, ind1, ind2) => {

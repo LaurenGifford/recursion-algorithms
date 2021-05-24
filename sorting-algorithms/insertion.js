@@ -1,3 +1,6 @@
+// works well with nearly sorted data
+// or if data needs to be continuously sorted
+
 function insertion(arr) {
     var val
     for (var i = 1; i < arr.length; i++) {

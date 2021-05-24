@@ -13,7 +13,7 @@
 
 // optimized
 function bubble(arr) {
-    let noSwaps
+    var noSwaps
     const swap = (arr, ind1, ind2) => {
         [arr[ind1], arr[ind2]] = [arr[ind2], arr[ind1]]
     }
